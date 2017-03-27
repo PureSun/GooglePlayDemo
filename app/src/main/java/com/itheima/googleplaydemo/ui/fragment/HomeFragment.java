@@ -3,6 +3,7 @@ package com.itheima.googleplaydemo.ui.fragment;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Toast;
 
 import com.itheima.googleplaydemo.R;
 import com.itheima.googleplaydemo.app.Constant;
@@ -38,6 +39,10 @@ public class HomeFragment extends BaseAppListFragment {
         listCall.enqueue(new Callback<HomeBean>() {
             @Override
             public void onResponse(Call<HomeBean> call, Response<HomeBean> response) {
+                if (response.body()==null) {
+                    Toast.makeText(getContext(), "1111111111", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 getAppList().addAll(response.body().getList());
                 mLooperDataList.addAll(response.body().getPicture());
                 onDataLoadedSuccess();

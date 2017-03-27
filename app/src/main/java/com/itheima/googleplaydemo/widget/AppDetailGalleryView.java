@@ -25,6 +25,7 @@ public class AppDetailGalleryView extends FrameLayout {
     @BindView(R.id.app_detail_pic_container)
     LinearLayout mAppDetailPicContainer;
 
+
     public AppDetailGalleryView(Context context) {
         this(context, null);
     }

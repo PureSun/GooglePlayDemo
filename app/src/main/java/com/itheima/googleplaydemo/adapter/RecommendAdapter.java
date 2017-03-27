@@ -33,7 +33,7 @@ public class RecommendAdapter implements StellarMap.Adapter {
     public int getGroupCount() {
         int pageCount = mDataList.size() / PAGE_SIZE;
 
-        if (mDataList.size() % PAGE_SIZE != 0) {//有余数的时候
+        if (mDataList.size() % PAGE_SIZE != 0) { //取模有余数的时候
             pageCount++;
         }
 
@@ -98,9 +98,16 @@ public class RecommendAdapter implements StellarMap.Adapter {
     @Override
     public int getNextGroupOnZoom(int group, boolean isZoomIn) {
         if (isZoomIn) {
-            return (group + 1) % getGroupCount();
+            return (group + 1) % getGroupCount();//取模循环范围  0,1,2
+            //(0+1)%3=1返回下一个页面
+            //(1+1)%3=2
+            //(2+1)%3=0
         } else {
             return (group - 1 + getGroupCount()) % getGroupCount();
+            //上一个页面,取模范围 0,1,2
+            //(0-1+3)%3=2返回上一个页面
+            //(1-1+3)%3=0
+            //(2-1+3)%3=1
         }
     }
 }

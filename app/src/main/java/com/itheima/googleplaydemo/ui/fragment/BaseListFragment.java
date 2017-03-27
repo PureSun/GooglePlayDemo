@@ -17,22 +17,27 @@ public abstract class BaseListFragment extends BaseFragment{
     private ListView mListView;
 
     private BaseAdapter mBaseAdapter;
-
+    //返回一个ListView
     @Override
     protected final View onCreateContentView() {
+        //创建一个listView
         mListView = new ListView(getContext());
+        //创建适配器
         mBaseAdapter = onCreateAdapter();
+        //创建头部,可以添加带ListView上面
         View header = onCreateHeaderView();
         if (header != null) {
             mListView.addHeaderView(header);
         }
+        //设置适配器
         mListView.setAdapter(mBaseAdapter);
+        //设置监听
         mListView.setOnItemClickListener(mOnItemClickListener);
         mListView.setSelector(new ColorDrawable(Color.TRANSPARENT));
         initListView();
         return mListView;
     }
-
+    //设置监听
     private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

@@ -31,6 +31,7 @@ public abstract class BaseListAdapter<T> extends BaseAdapter {
         return mDataList.size();
     }
 
+    //返回对应位置的数据,基类需要写
     @Override
     public Object getItem(int position) {
         return mDataList.get(position);
@@ -61,6 +62,7 @@ public abstract class BaseListAdapter<T> extends BaseAdapter {
 
     public class ViewHolder {
         View holdView;
+
         public ViewHolder(View v) {
             holdView = v;
         }

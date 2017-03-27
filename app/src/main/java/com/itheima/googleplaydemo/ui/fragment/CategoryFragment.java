@@ -35,6 +35,7 @@ public class CategoryFragment extends BaseListFragment {
             @Override
             public void onResponse(Call<List<CategoryBean>> call, Response<List<CategoryBean>> response) {
                 mCategories = response.body();
+                //数据加载成功后需要,调用到适配器,创建适配器方法
                 onDataLoadedSuccess();
             }
 

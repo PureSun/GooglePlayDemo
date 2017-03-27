@@ -30,6 +30,7 @@ public abstract class BaseFragment extends Fragment {
     LinearLayout mLoadingError;
 
     private FrameLayout mBaseView;
+
     private Handler mHandler = new Handler();
 
     @Nullable
@@ -39,7 +40,7 @@ public abstract class BaseFragment extends Fragment {
         ButterKnife.bind(this, mBaseView);
         return mBaseView;
     }
-
+    //当Fragment视图,创建完成后加载数据
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         startLoadData();
@@ -79,6 +80,8 @@ public abstract class BaseFragment extends Fragment {
 
     @OnClick(R.id.error_btn_retry)
     public void onClick() {
+        mLoadingError.setVisibility(View.GONE);
+        mLoadingProgress.setVisibility(View.VISIBLE);
         startLoadData();
     }
 }

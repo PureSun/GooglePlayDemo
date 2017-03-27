@@ -29,6 +29,9 @@ public class HotFragment extends BaseFragment {
     private static final String TAG = "HotFragment";
 
     private List<String> mDataList;
+    //同步和异步的区别
+    //同步直接获取结果
+    //异步通过回调获取结果
 
     @Override
     protected void startLoadData() {
@@ -51,6 +54,7 @@ public class HotFragment extends BaseFragment {
 
     @Override
     protected View onCreateContentView() {
+
         ScrollView scrollView = new ScrollView(getContext());
         //流式布局
         FlowLayout fl = new FlowLayout(getContext());
@@ -65,7 +69,7 @@ public class HotFragment extends BaseFragment {
             TextView tv = new TextView(getContext());
             tv.setText(data);
             tv.setTextColor(Color.WHITE);
-
+            tv.setTextSize(25);
             tv.setGravity(Gravity.CENTER);
             tv.setPadding(padding, padding, padding, padding);
 

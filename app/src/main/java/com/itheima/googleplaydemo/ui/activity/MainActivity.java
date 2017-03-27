@@ -61,9 +61,9 @@ public class MainActivity extends BaseActivity {
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                mDrawerLayout.closeDrawer(GravityCompat.START);
-                mNavigationView.setCheckedItem(item.getItemId());
-                return false;
+        mDrawerLayout.closeDrawer(GravityCompat.START);
+        mNavigationView.setCheckedItem(item.getItemId());
+        return false;
             }
         });
     }

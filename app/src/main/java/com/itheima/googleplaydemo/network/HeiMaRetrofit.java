@@ -29,7 +29,7 @@ public class HeiMaRetrofit {
                 .build();
         mApi = retrofit.create(Api.class);
     }
-
+    //创建单例模式网络retrofit
     public static HeiMaRetrofit getInstance() {
         if (sHeiMaRetrofit == null) {
             synchronized (HeiMaRetrofit.class) {
